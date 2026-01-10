@@ -1,0 +1,123 @@
+.step-detail-container {
+    padding: 32px 24px;
+    min-height: 100vh;
+    background: transparent;
+    color: var(--text-body);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.step-not-found {
+    text-align: center;
+    padding-top: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.step-navigation {
+    margin-bottom: 32px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+}
+
+.back-button:hover {
+    color: var(--primary-blue);
+    transform: translateX(-4px);
+}
+
+.step-header {
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 32px;
+}
+
+.step-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    color: var(--text-heading);
+    margin-bottom: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.step-description {
+    font-size: 20px;
+    color: var(--text-body);
+    line-height: 1.6;
+    max-width: 65ch;
+}
+
+.doc-link {
+    margin-top: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+
+.step-importance {
+    margin-bottom: 48px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+}
+
+.step-importance::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-blue);
+}
+
+.importance-title {
+    font-size: 20px;
+    color: var(--primary-blue);
+    margin-bottom: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-content {
+    font-size: 16.8px;
+    line-height: 1.7;
+    color: var(--text-heading);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

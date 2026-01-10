@@ -1,0 +1,263 @@
+
+.contact-page {
+  min-height: 100vh;
+  padding: 100px 5% 80px;
+  background-color: #000000;
+  color: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.contact-page::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 600px;
+  background: radial-gradient(circle at top, rgba(139, 92, 246, 0.15), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-header {
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.contact-title {
+  font-size: 72px;
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.contact-subtitle {
+  font-size: 18px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 80px;
+
+  width: 100%;
+  max-width: 1100px;
+  padding: 60px;
+
+  background: rgba(15, 15, 17, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 32px;
+
+  box-shadow:
+    0 24px 48px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+
+  position: relative;
+  z-index: 2;
+
+
+  opacity: 0;
+  animation: slideUpCard 0.8s 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+
+.contact-form-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: #a78bfa;
+  
+}
+
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.05);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.btn-send {
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  align-self: flex-start;
+  min-width: 160px;
+}
+
+.btn-send:hover {
+  background: #a78bfa;
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.4);
+  transform: translateY(-2px);
+}
+
+
+.contact-info-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  gap: 40px; 
+  padding-top: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  padding-left: 60px;
+}
+
+.info-block h3 {
+  font-size: 24px;
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.info-block p {
+  font-size: 16px;
+  color: #94a3b8;
+  line-height: 1.8;
+}
+
+.social-links-minimal {
+  display: flex;
+  gap: 24px;
+ 
+}
+
+.social-links-minimal a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.social-links-minimal a:hover {
+  color: #ffffff;
+}
+
+.social-links-minimal a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: #a78bfa;
+  transition: width 0.3s ease;
+}
+
+.social-links-minimal a:hover::after {
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpCard {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 900px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding: 32px;
+    padding-bottom: 50px;
+  }
+
+  .contact-info-section {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-left: 0;
+    padding-top: 40px;
+  }
+
+  .contact-title {
+    font-size: 48px;
+  }
+
+  .contact-page {
+    padding: 100px 20px 40px;
+  }
+}

@@ -1,0 +1,122 @@
+:root {
+
+    --bg-primary: #F8FAFF;
+    --bg-card: #FFFFFF;
+
+    --text-heading: #1E293B;
+    --text-body: #475569;
+    --text-muted: #94a3b8;
+
+    --primary-blue: #5C7CFA;
+    --primary-hover: #4F46E5;
+    --primary-gradient: linear-gradient(135deg, #5C7CFA 0%, #7C8CFF 100%);
+    --primary-gradient-hover: linear-gradient(135deg, #4F46E5 0%, #5C7CFA 100%);
+
+    --accent-lavender: #EEF2FF;
+    --accent-lavender-dark: #E0E7FF;
+
+    --border-light: #E2E8F0;
+
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-hover: 0 10px 15px -3px rgba(92, 124, 250, 0.15), 0 4px 6px -2px rgba(92, 124, 250, 0.1);
+
+    font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light;
+    color: var(--text-body);
+    background-color: var(--bg-primary);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: flex-start;
+
+    min-width: 320px;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    
+}
+
+#root {
+    width: 100%;
+    margin: 0 auto;
+}
+
+a {
+    font-weight: 500;
+    text-decoration: inherit;
+    color: var(--primary-blue);
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-heading);
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: var(--bg-card);
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-animate {
+    animation: pageFadeIn 0.4s ease-out forwards;
+    width: 100%;
+    
+    will-change: transform, opacity;
+}

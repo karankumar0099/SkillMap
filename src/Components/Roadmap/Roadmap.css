@@ -1,0 +1,440 @@
+
+
+.section-dark {
+    background-color: #000000;
+    min-height: 100vh;
+    padding: 96px 24px;
+    color: #e2e8f0;
+ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+.roadmap-page::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 600px;
+    background: radial-gradient(circle at top, rgba(139, 92, 246, 0.15), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.step-label {
+    color: #a78bfa;
+   
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 12px;
+    display: inline-block;
+    margin-bottom: 16px;
+    background: rgba(139, 92, 246, 0.1);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.section-title {
+    font-size: clamp(40px, 5vw, 56px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: #ffffff;
+  
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    color: #94a3b8;
+  
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+.roadmap-tree {
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+
+.node-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.node-wrapper:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.node-wrapper:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.node-wrapper:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.node-wrapper:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.node-wrapper:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.node-wrapper:nth-child(n+6) {
+    animation-delay: 0.6s;
+}
+
+.roadmap-node {
+    background: #0f0f11;
+    
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.roadmap-node:hover {
+    transform: translateY(-4px);
+    border-color: #8b5cf6;
+   
+    box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.2);
+    background: #131316;
+}
+
+.roadmap-node.expanded {
+    border-color: #8b5cf6;
+    box-shadow: 0 20px 40px -12px rgba(139, 92, 246, 0.2);
+    background: #131316;
+}
+
+.node-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.node-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+ 
+    transition: color 0.3s ease;
+}
+
+.roadmap-node:hover .node-title,
+.roadmap-node.expanded .node-title {
+    color: #a78bfa;
+   
+}
+
+.node-icon {
+    color: #64748b;
+    transition: transform 0.4s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.roadmap-node:hover .node-icon,
+.roadmap-node.expanded .node-icon {
+    color: #a78bfa;
+}
+
+.node-icon.rotate {
+    transform: rotate(180deg);
+}
+
+
+.node-content {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.node-content.show {
+    max-height: 1000px;
+    opacity: 1;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.node-description {
+    color: #cbd5e1;
+  
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.node-importance {
+    background: rgba(139, 92, 246, 0.05);
+    border-left: 4px solid #8b5cf6;
+    padding: 16px 20px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 24px;
+}
+
+.importance-label {
+    font-size: 13.6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    color: #a78bfa;
+    margin-bottom: 8px;
+}
+
+.node-importance p {
+    font-size: 15.2px;
+    color: #e2e8f0;
+    margin: 0;
+    font-style: italic;
+}
+
+.node-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.node-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 9999px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.node-link:hover {
+    background: #8b5cf6;
+    color: white;
+    border-color: #8b5cf6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+
+.roadmap-line {
+    height: 60px;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+    
+    margin: 0 auto;
+}
+
+.roadmap-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #8b5cf6;
+    transition: height 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.roadmap-line svg {
+    overflow: visible;
+    stroke: rgba(255, 255, 255, 0.1);
+}
+
+.node-wrapper:hover .roadmap-line svg line,
+.node-wrapper:hover .roadmap-line svg path {
+    stroke: #8b5cf6;
+    transition: stroke 0.3s ease;
+}
+
+.link-icon {
+    margin-left: 6px;
+}
+
+
+.node-subtopics {
+    margin-bottom: 24px;
+}
+
+.subtopics-label {
+    font-size: 13.6px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.subtopics-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.subtopic-tag {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    font-size: 13.6px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+
+.roadmap-controls {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.back-button {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #cbd5e1;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-button:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+    transform: translateX(-4px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+.chat-mode-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    overflow: hidden;
+    
+    height: 100vh;
+    padding-top: 64px;
+
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+
+.chat-mode-layout.roadmap-page {
+    padding: 0;
+    min-height: 100vh;
+    align-items: stretch;
+  
+}
+
+.chat-mode-layout .roadmap-main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 40px 5% 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chat-mode-layout .roadmap-chat-sidebar {
+    width: 400px;
+    min-width: 350px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0f0f11;
+    height: calc(100vh - 64px);
+  
+    position: sticky;
+    top: 64px;
+    display: flex;
+}
+
+
+.chat-mode-layout .roadmap-page::before {
+    display: none;
+
+}
+
+
+@media (max-width: 1024px) {
+    .chat-mode-layout {
+        flex-direction: column;
+        height: auto;
+        overflow: visible;
+        padding-top: 80px;
+    }
+
+    .chat-mode-layout .roadmap-chat-sidebar {
+        width: 100%;
+        height: 600px;
+        position: relative;
+        top: 0;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .chat-mode-layout .roadmap-main-content {
+        height: auto;
+        overflow: visible;
+        padding-top: 20px;
+    }
+}
