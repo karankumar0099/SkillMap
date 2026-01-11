@@ -142,12 +142,36 @@ section {
 }
 
 
-.mobile-menu-btn {
+/* Animated Hamburger Icon */
+.hamburger {
   display: flex;
-  background: transparent;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
   border: none;
-  color: white;
   cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 2px;
+  background-color: white;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 
@@ -232,30 +256,84 @@ section {
   opacity: 0.8;
 }
 
+/* Mobile Menu - Slides from Right */
 .mobile-menu {
   position: fixed;
-  top: 64px;
-  width: 100%;
-  z-index: 999;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  max-width: 350px;
+  height: 100vh;
+  z-index: 1000;
 
+  /* Transparent background with blur */
+  background: rgba(10, 5, 25, 0.95);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+
+  display: flex;
+  flex-direction: column;
+
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-menu-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 20px;
+  border-bottom: 1px solid rgba(167, 139, 250, 0.15);
+}
+
+.mobile-close-btn {
+  background: rgba(167, 139, 250, 0.2);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #EDE9FE;
+  transition: all 0.3s ease;
+}
+
+.mobile-close-btn:hover {
+  background: rgba(167, 139, 250, 0.35);
+  border-color: #A78BFA;
+  transform: rotate(90deg);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.mobile-menu-content {
   padding: 32px 24px;
   display: flex;
   flex-direction: column;
   gap: 24px;
   align-items: flex-start;
-
-  background: rgba(30, 27, 75, 0.95);
-  backdrop-filter: blur(18px);
+  overflow-y: auto;
 }
 
-.mobile-menu a {
+.mobile-menu-content a {
   color: #EDE9FE;
-  font-size: 20px;
+  font-size: 18px;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
 }
 
-.mobile-menu a:hover {
-  color: #C4B5FD;
+.mobile-menu-content a:hover {
+  color: #A78BFA;
+  opacity: 1;
+  transform: translateX(10px);
 }
 
 
@@ -299,7 +377,7 @@ section {
     display: inline-flex;
   }
 
-  .mobile-menu-btn {
+  .hamburger {
     display: none;
   }
 }

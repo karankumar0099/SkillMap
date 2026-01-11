@@ -23,6 +23,13 @@ const MenuIcon = () => (
   </svg>
 );
 
+const CloseIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+);
+
 const ChatIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -161,54 +168,69 @@ const Navbar = () => {
           </div>
 
           <button
-            className="mobile-menu-btn"
+            className={`hamburger ${menuOpen ? 'active' : ''}`}
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
           >
-            <MenuIcon />
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
 
         </nav>
       </header>
 
       {menuOpen && (
-        <div className="mobile-menu">
-          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-
-          <div className="mobile-dropdown">
-            <span className="mobile-dropdown-title">Roadmaps</span>
-            <div className="mobile-dropdown-links">
-              <Link to="/skills" onClick={() => setMenuOpen(false)}>
-                Skill & Role Based
-              </Link>
-              <Link to="/official-roadmaps" onClick={() => setMenuOpen(false)}>
-                Official Roadmaps
-              </Link>
-            </div>
+        <div className={`mobile-menu ${menuOpen ? 'active' : ''}`}>
+          <div className="mobile-menu-header">
+            <button
+              className="mobile-close-btn"
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <CloseIcon />
+            </button>
           </div>
 
-          <div className="mobile-dropdown">
-            <span className="mobile-dropdown-title">AI Tutor</span>
-            <div className="mobile-dropdown-links">
-              <Link to="/ai-tutor" onClick={() => setMenuOpen(false)}>
-                Ask AI Tutor
-              </Link>
-              <Link to="/roadmap-chat" onClick={() => setMenuOpen(false)}>
-                Roadmap Chat
-              </Link>
+          <div className="mobile-menu-content">
+            <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+
+            <div className="mobile-dropdown">
+              <span className="mobile-dropdown-title">Roadmaps</span>
+              <div className="mobile-dropdown-links">
+                <Link to="/skills" onClick={() => setMenuOpen(false)}>
+                  Skill & Role Based
+                </Link>
+                <Link to="/official-roadmaps" onClick={() => setMenuOpen(false)}>
+                  Official Roadmaps
+                </Link>
+              </div>
             </div>
+
+            <div className="mobile-dropdown">
+              <span className="mobile-dropdown-title">AI Tutor</span>
+              <div className="mobile-dropdown-links">
+                <Link to="/ai-tutor" onClick={() => setMenuOpen(false)}>
+                  Ask AI Tutor
+                </Link>
+                <Link to="/roadmap-chat" onClick={() => setMenuOpen(false)}>
+                  Roadmap Chat
+                </Link>
+              </div>
+            </div>
+
+            <Link to="/skill-input" onClick={() => setMenuOpen(false)}>
+              Skill Input
+            </Link>
+
+            <Link to="/portfolio" onClick={() => setMenuOpen(false)}>
+              Portfolio
+            </Link>
+
+            <Link to="/contact" onClick={() => setMenuOpen(false)}>
+              Contact
+            </Link>
           </div>
-
-          <Link to="/skill-input" onClick={() => setMenuOpen(false)}>
-            Skill Input
-          </Link>
-
-          <Link to="/portfolio" onClick={() => setMenuOpen(false)}>
-            Portfolio
-          </Link>
-
-          <Link to="/contact" onClick={() => setMenuOpen(false)}>
-            Contact
-          </Link>
         </div>
       )}
     </>
