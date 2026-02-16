@@ -162,9 +162,7 @@ const Navbar = () => {
             <Link to="/skill-input" className="btn-primary">
               Get Started <ArrowRight />
             </Link>
-            <Link to="/portfolio" className="btn-primary">
-              Portfolio
-            </Link>
+
           </div>
 
           <button
@@ -223,9 +221,7 @@ const Navbar = () => {
               Skill Input
             </Link>
 
-            <Link to="/portfolio" onClick={() => setMenuOpen(false)}>
-              Portfolio
-            </Link>
+
 
             <Link to="/contact" onClick={() => setMenuOpen(false)}>
               Contact

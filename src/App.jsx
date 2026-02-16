@@ -11,7 +11,7 @@ import StepDetail from './Pages/Steps/StepDetail';
 import Contact from './Pages/Contact/Contact';
 import AiTutor from './Pages/AiTutor/AiTutor';
 import RoadmapChatSelection from './Pages/RoadmapChatSelection/RoadmapChatSelection';
-import Portfolio from './Pages/Portfolio/Portfolio';
+
 
 const PageWrapper = ({ children }) => (
   <div className="page-animate">
@@ -33,7 +33,7 @@ const App = () => {
         <Route path="/roadmap-chat" element={<PageWrapper><RoadmapChatSelection /></PageWrapper>} />
         <Route path="/roadmap/:id" element={<PageWrapper><Roadmap /></PageWrapper>} />
         <Route path="/step/:id" element={<PageWrapper><StepDetail /></PageWrapper>} />
-        <Route path="/portfolio" element={<PageWrapper><Portfolio /></PageWrapper>} />
+
       </Routes>
       <Footer />
     </BrowserRouter>
